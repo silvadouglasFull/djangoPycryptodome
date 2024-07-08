@@ -1,0 +1,21 @@
+{
+    "token": {
+        "is_enable": true,
+        "key_site": "6Ldg0AMqAAAAAIg9g8NjjVItj4kiIv-OHQBAE_oX",
+        "key_secret": "6Ldg0AMqAAAAAC9RqVvE1tfzdPEwZeaMHT4HcxAn"
+    },
+    "cryptography": {
+        "is_enable": true,
+        "index_path": "banco_master",
+        "path_key_public": [
+            "source",
+            "pem",
+            "public_key.pem"
+        ],
+        "path_key_private": [
+            "source",
+            "pem",
+            "private_key.pem"
+        ]
+    }
+}
