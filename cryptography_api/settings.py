@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-a-8gw3gc%#ghmh5jx$na!up@ao+d!@76ltd$y()97qb2o_a^kc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -52,6 +52,8 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
+    "api.encryptMiddleware.encryptMiddleware",
+    "api.recaptchaMiddleware.encryptMiddleware",
 ]
 
 ROOT_URLCONF = "cryptography_api.urls"
@@ -131,4 +133,14 @@ CORS_ORIGIN_WHITELIST = [
     "http://localhost:3000",  # Adicione aqui a URL do seu frontend
     # Outras origens permitidas, se necessário
     "http://192.168.1.41:3000",  # Adicione aqui a URL do seu frontend
+]
+# Allow all origins for simplicity, adjust as needed for your environment
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+]
+
+# Allow the 'recaptcha-token' header
+CORS_ALLOW_HEADERS = [
+    "Recaptcha-Token",
+    "Content-Type",  # adjust as needed
 ]

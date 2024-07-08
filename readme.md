@@ -48,7 +48,7 @@ key = b'SuaChaveDe32Bytes1234567890'  # Exemplo: chave AES de 32 bytes
 # Inicialização do objeto AES com a chave e o modo de operação (CBC é comumente usado)
 cipher = AES.new(key, AES.MODE_CBC)
 
-def decrypt_data(data):
+def decrypt_payload(data):
     decrypted_data = {}
     for field, value in data.items():
         # Decodificar o valor base64
@@ -59,8 +59,8 @@ def decrypt_data(data):
 
     return decrypted_data
 
-# Exemplo de uso da função decrypt_data:
-dados_descriptografados = decrypt_data({
+# Exemplo de uso da função decrypt_payload:
+dados_descriptografados = decrypt_payload({
     'campo1': 'Zm9vYmFy',  # Valor codificado em base64
     'campo2': 'YXNkZmFzZGZhc2Rm'  # Outro valor codificado em base64
 })
