@@ -6,13 +6,16 @@ from Crypto.Random import get_random_bytes
 class KeyView:
     @staticmethod
     def generate_key(file_path):
-        # Gerar uma chave AES de 32 bytes (256 bits)
-        key = get_random_bytes(32)
-        print(f"Chave AES: {key.hex()}")
-        # Escrever a chave em um arquivo public.pem
-        with open(file_path, "wb") as file:
-            file.write(key)
-        return key.hex()
+        # Gerar uma chave AES de 16 bytes
+        key = get_random_bytes(16)
+        key_hex = key.hex()
+        print(f"Chave AES: {key_hex}")
+
+        # Escrever a chave em um arquivo .pem
+        with open(file_path, "w") as file:
+            file.write(f"{key_hex}")
+
+        return key_hex
 
     @staticmethod
     def get_public_key():
@@ -45,7 +48,7 @@ class KeyView:
                         file.read()
                     )  # Lê o conteúdo do arquivo como bytes
 
-                return public_key_content.hex()
+                return bytes(public_key_content)
 
             except FileNotFoundError:
                 print("File not found")
@@ -95,7 +98,7 @@ class KeyView:
                         file.read()
                     )  # Lê o conteúdo do arquivo como bytes
 
-                return private_key_content.hex()
+                return private_key_content
 
             except FileNotFoundError:
                 print("File not found")

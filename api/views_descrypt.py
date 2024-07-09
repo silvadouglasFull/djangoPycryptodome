@@ -14,7 +14,6 @@ def decrypt_payload(request):
         config = get_config()
         is_enable = config["cryptography"]["is_enable"]
         SECRET_KEY = KeyView.get_public_key()
-        print(f"Tamanho da chave: {len(SECRET_KEY)} bytes")  # Deve ser 32 bytes
         if SECRET_KEY == "":
             return request
         body = json.loads(request.body)
@@ -32,7 +31,6 @@ def decrypt_payload(request):
         for field, value in data.items():
             response[field] = value
         return response
-
     except (ValueError, KeyError) as e:
         print(e)
         return request

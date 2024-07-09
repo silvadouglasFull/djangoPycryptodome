@@ -3,7 +3,7 @@
         "is_enable": true,
         "key_site": "6Ldg0AMqAAAAAIg9g8NjjVItj4kiIv-OHQBAE_oX",
         "secret_key": "6Ldg0AMqAAAAAC9RqVvE1tfzdPEwZeaMHT4HcxAn",
-        "host": "https://www.google.com/recaptcha/api/siteverify"
+        "host": "https://www.google.com/recaptcha/api/siteverify?secret"
     },
     "cryptography": {
         "is_enable": true,
